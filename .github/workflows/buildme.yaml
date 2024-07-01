@@ -25,8 +25,9 @@ jobs:
 
       - name: Build
         run: |
-          mkdir -p dist/${{ matrix.goos }}-${{ matrix.goarch }}
-          GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} go build -o dist/${{ matrix.goos }}-${{ matrix.goarch }}/csv-to-json-${{ matrix.goos }}-${{ matrix.goarch }} ./src
+          cd src
+          mkdir -p ../dist/${{ matrix.goos }}-${{ matrix.goarch }}
+          GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} go build -o ../dist/${{ matrix.goos }}-${{ matrix.goarch }}/csv-to-json-${{ matrix.goos }}-${{ matrix.goarch }}
 
       - name: Upload Release Asset
         uses: softprops/action-gh-release@v2
