@@ -33,7 +33,7 @@ jobs:
           GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} go build -ldflags "-s -w" -o ../dist/${{ matrix.goos }}-${{ matrix.goarch }}/csv-to-json-${{ matrix.goos }}-${{ matrix.goarch }}
 
       - name: Compress executable with UPX
-        run: upx --best ../dist/${{ matrix.goos }}-${{ matrix.goarch }}/csv-to-json-${{ matrix.goos }}-${{ matrix.goarch }}
+        run: upx --best dist/${{ matrix.goos }}-${{ matrix.goarch }}/csv-to-json-${{ matrix.goos }}-${{ matrix.goarch }}
 
       - name: Upload Release Asset
         uses: softprops/action-gh-release@v2
